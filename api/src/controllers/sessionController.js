@@ -4,12 +4,13 @@ import { default as jwt } from "jsonwebtoken";
 import { prisma } from "../lib/prisma.js";
 import CustomNotFoundError from "../errors/CustomNotFoundError.js";
 import { body, validationResult, matchedData } from "express-validator";
+import CustomAuthorizationError from "../errors/CustomAuthorizationError.js";
 
 const bodyValidateSession = [
   body("email").trim().notEmpty()
     .isLength({ min: 6, max: 60 }),
   body("password").trim().notEmpty()
-    .isLength({ min: 8, max: 25}),
+    .isLength({ min: 8, max: 25 }),
 ];
 
 
@@ -28,7 +29,7 @@ export const postSession = [bodyValidateSession, async function postSession(req,
     const isPasswordValid = await validatePassword(data.password, user.password);
 
     if (!isPasswordValid) {
-      return res.status(401).json({ error: "Authentication failed" });
+      throw new CustomAuthorizationError("Authentication failed");
     }
 
     const opts = {};

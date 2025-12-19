@@ -2,6 +2,7 @@ import "dotenv/config";
 import { default as JwtStrategy } from "passport-jwt/lib/strategy.js";
 import { ExtractJwt } from "passport-jwt";
 import { prisma } from "../prisma.js";
+import CustomNotFoundError from "../../errors/CustomNotFoundError.js";
 
 const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
@@ -14,6 +15,10 @@ const jwtStrategy = new JwtStrategy(opts, async (jwt_payload, done) => {
       where: { id: jwt_payload.id },
       include: { role: true }
     });
+
+    if (!user) {
+      throw new CustomNotFoundError("User not found")
+    }
 
     user = {
       id: user.id,
