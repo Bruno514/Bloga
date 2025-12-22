@@ -17,18 +17,10 @@ export const postUserValidator = [
     .trim()
     .notEmpty()
     .isLength({ min: 8, max: 25 }),
-  oneOf(
-    [
-      body("role")
-        .trim()
-        .notEmpty()
-        .equals("normal"),
-      body("role")
-        .trim()
-        .notEmpty()
-        .equals("publisher")
-    ]
-  )
+  body("confirmPassword")
+    .trim()
+    .notEmpty()
+    .isLength({ min: 8, max: 25 }),
 ]
 
 export const updateUserValidator = [

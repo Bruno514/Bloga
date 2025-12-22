@@ -51,6 +51,11 @@ export async function getUserById(req, res) {
 
 export const postUser = async (req, res) => {
   const data = matchedData(req);
+
+  if (data.password != data.confirmPassword) {
+    throw new CustomValidationError("Passwords do not match");
+  }
+
   const hashedPassword = await genPassword(data.password);
 
   try {
@@ -59,7 +64,7 @@ export const postUser = async (req, res) => {
         name: data.username,
         email: data.email,
         password: hashedPassword,
-        role: { connect: { name: data.role } },
+        role: { connect: { name: "normal"} },
       },
     });
   } catch (err) {
