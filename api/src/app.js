@@ -1,10 +1,13 @@
 import "dotenv/config";
 import { default as express } from "express";
+import { default as cors } from "cors"
 import sessionRouter from "./routes/sessionRoutes.js";
 import articleRouter from "./routes/articleRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 
 const app = express();
+
+app.use(cors())
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
