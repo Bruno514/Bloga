@@ -1,0 +1,13 @@
+@use "@styles/colors";
+@use "@styles/spaces";
+@use "@styles/sizes";
+@use "@styles/fonts";
+
+#errorPage {
+  background-color: colors.$neutral-50;
+  padding: spaces.$space-md;
+  border-radius: 12px;
+  margin-inline: auto;
+  margin-block: spaces.$space-lg;
+  max-width: sizes.$container-2xl;
+}

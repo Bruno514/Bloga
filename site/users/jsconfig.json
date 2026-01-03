@@ -1,0 +1,13 @@
+{
+  "initilizationOptions": {
+    "completionDisableFilterText": true,
+  }
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonJS",
+    "moduleResolution": "commonJS", // or "Bundler"
+    //"baseUrl": "./", // Base directory for resolving non-relative module names
+    "include": ["src"]
+  }
+}
+

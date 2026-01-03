@@ -3,11 +3,14 @@
     "completionDisableFilterText": true
   },
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2020",
     "module": "ESNext",
     "moduleResolution": "NodeNext", // or "Bundler"
-    //"baseUrl": "./", // Base directory for resolving non-relative module names
-    "include": ["src"]
+    "baseUrl": "./", // Base directory for resolving non-relative module names
+    "include": ["./src"],
+    "paths": {
+      "@/*": ["src/*"]
     }
+  }
 }
 

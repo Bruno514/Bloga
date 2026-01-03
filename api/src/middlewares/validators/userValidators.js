@@ -7,7 +7,6 @@ export const getUserByIdValidator = [
 export const postUserValidator = [
   body("username")
     .trim()
-    .optional()
     .isLength({ min: 6, max: 60 }),
   body("email")
     .trim()

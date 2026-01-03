@@ -1,6 +1,6 @@
 import { redirect } from "react-router";
-import { getUser } from "../services/userService.js";
-import { userContext } from "../contexts/userContext.js";
+import { userContext } from "@/contexts/userContext.js";
+import { getUser } from "@/services/userService.js";
 
 const authMiddleware = async ({ context }) => {
   const user = await getUser();

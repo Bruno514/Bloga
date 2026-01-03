@@ -1,0 +1,70 @@
+@use "@styles/fonts";
+@use "@styles/spaces";
+@use "@styles/colors";
+
+.section {
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 4em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 30em;
+  gap: spaces.$space-xs;
+  padding: spaces.$space-lg;
+  border: 1px solid colors.$neutral-200;
+  border-radius: 16px;
+
+  input,
+  button {
+    border-radius: 12px;
+    border-style: solid;
+    border-color: colors.$neutral-50;
+    width: 100%;
+    padding: spaces.$space-xs;
+    margin: 0;
+  }
+}
+
+.submitButton {
+  font-size: fonts.$font-md;
+  font-weight: 800;
+  color: colors.$neutral-50;
+  background-color: colors.$neutral-800;
+  cursor: pointer;
+
+  &:hover {
+    background-color: colors.$neutral-950;
+  }
+}
+
+.signUp {
+  color: colors.$neutral-950;
+}
+
+.link {
+  color: colors.$neutral-600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.error {
+  &::after {
+    content: "!";
+  }
+  border-radius: 12px;
+  padding: spaces.$space-xs;
+  color: colors.$neutral-700;
+  background-color: colors.$neutral-50;
+  font-weight: 900;
+  font-size: fonts.$font-xs;
+}
