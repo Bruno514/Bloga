@@ -1,0 +1,47 @@
+@use "@styles/fonts";
+@use "@styles/spaces";
+@use "@styles/colors";
+
+.button {
+  border-radius: 12px;
+  border-style: solid;
+  border-color: colors.$neutral-50;
+  padding: spaces.$space-xs spaces.$space-md;
+  margin: 0;
+}
+
+.primary {
+  font-size: fonts.$font-md;
+  font-weight: bold;
+  color: colors.$neutral-50;
+  background-color: colors.$neutral-800;
+  cursor: pointer;
+
+  &:hover {
+    background-color: colors.$neutral-950;
+  }
+}
+
+.secondary {
+  font-size: fonts.$font-md;
+  font-weight: bold;
+  color: colors.$neutral-700;
+  background-color: colors.$neutral-50;
+  cursor: pointer;
+
+  &:hover {
+    background-color: colors.$neutral-50;
+  }
+}
+
+.secondary {
+  font-size: fonts.$font-md;
+  font-weight: bold;
+  color: colors.$neutral-700;
+  background-color: colors.$neutral-50;
+  cursor: pointer;
+
+  &:hover {
+    background-color: colors.$neutral-50;
+  }
+}

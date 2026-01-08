@@ -44,7 +44,7 @@
   }
 }
 
-.signUp {
+.logIn {
   color: colors.$neutral-950;
 }
 
@@ -61,6 +61,7 @@
   &::after {
     content: "!";
   }
+
   border-radius: 12px;
   padding: spaces.$space-xs;
   color: colors.$neutral-700;

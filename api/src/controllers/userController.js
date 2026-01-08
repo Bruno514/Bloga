@@ -5,6 +5,7 @@ import CustomNotFoundError from "../errors/CustomNotFoundError.js";
 import CustomValidationError from "../errors/CustomValidationError.js";
 import { matchedData } from "express-validator";
 import CustomAuthorizationError from "../errors/CustomAuthorizationError.js";
+import CustomAlreadyExistsError from "../errors/CustomAlreadyExistsError.js";
 
 export async function getUser(req, res) {
   const id = req.user.id;
@@ -29,10 +30,10 @@ export async function getUser(req, res) {
 }
 
 export async function getUserById(req, res) {
-  const { id } = req.params;
+  const data = matchedData(req);
 
   let user = await prisma.user.findUnique({
-    where: { id: parseInt(id) },
+    where: { id: data.id },
     include: { role: true },
   });
 
@@ -50,7 +51,17 @@ export async function getUserById(req, res) {
 }
 
 export const postUser = async (req, res) => {
+  throw new Error("safdfas")
   const data = matchedData(req);
+
+  let user = await prisma.user.findUnique({
+    where: { email: data.email},
+    include: { role: true },
+  });
+
+  if (user) {
+    throw new CustomAlreadyExistsError("Email already in use")
+  }
 
   if (data.password != data.confirmPassword) {
     throw new CustomValidationError("Passwords do not match");
