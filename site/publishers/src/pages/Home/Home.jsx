@@ -1,18 +1,21 @@
 import { Button } from "@/components/Button/Button.jsx";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 
 export function HomePage() {
   let loaderData = useLoaderData();
+  let navigate = useNavigate();
 
   function handleCreateArticle() {
-    console.log("Hello");
+    navigate("/new");
   }
 
-  console.log(loaderData);
   return (
     <>
       <h1> Hello {loaderData.user.name}! 👋</h1>
-      <Button text="Hello" variant="tertiary" onClick={handleCreateArticle} />
+
+      <Button variant="primary" onClick={handleCreateArticle}>
+        New article!
+      </Button>
     </>
   );
 }
