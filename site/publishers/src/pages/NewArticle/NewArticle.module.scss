@@ -1,1 +1,14 @@
+@use "@styles/fonts";
+@use "@styles/spaces";
+@use "@styles/colors";
+
+.container {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: 5rem;
+
+  @media screen and (max-width: 40rem) {
+    padding-inline: 1rem;
+  }
+}
 
