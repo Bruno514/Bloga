@@ -1,11 +1,13 @@
 import styles from "./Button.module.scss";
 
-export function Button({ text, onClick, variant, type, classNames = [] }) {
-  const buttonStyle = [styles.button, styles[variant]].concat(classNames);
+export function Button({ children, onClick, variant, type, className = [] }) {
+  const buttonStyle = [styles.button, styles[variant]]
+    .concat(className)
+    .join(" ");
   return (
     <>
       <button className={buttonStyle} onClick={onClick} type={type}>
-        {text}
+        {children}
       </button>
     </>
   );
