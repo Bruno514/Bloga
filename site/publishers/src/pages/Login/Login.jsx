@@ -1,7 +1,9 @@
 import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 import { postSession } from "@/services/authService.js";
+import { Button } from "@/components/Button/Button.jsx";
 import styles from "./Login.module.scss";
+import { Input } from "@/components/Input/Input.jsx";
 
 export function LoginPage() {
   const [error, setError] = useState(null);
@@ -26,7 +28,7 @@ export function LoginPage() {
   return (
     <section className={styles.section}>
       <form className={styles.form} action={login}>
-        <input
+        <Input
           id="email"
           name="email"
           placeholder="Email"
@@ -35,7 +37,7 @@ export function LoginPage() {
           maxLength={60}
           required
         />
-        <input
+        <Input
           id="password"
           name="password"
           placeholder="Password"
@@ -47,9 +49,9 @@ export function LoginPage() {
 
         {error ? <p className={styles.error}>{error}</p> : null}
 
-        <button className={styles.submitButton} type="submit">
-          Log in
-        </button>
+        <Button variant="primary" type="submit" className={styles.submitButton}>
+          Login
+        </Button>
         <p className={styles.signUp}>
           Don't have an account?{" "}
           <Link className={styles.link} to="/signup">
