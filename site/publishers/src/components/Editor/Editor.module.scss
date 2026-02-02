@@ -1,0 +1,17 @@
+@use "@styles/fonts";
+@use "@styles/spaces";
+@use "@styles/colors";
+
+.editor {
+  border: none;
+  color: colors.$neutral-900;
+  background-color: colors.$neutral-100;
+  border: 1px solid colors.$neutral-200;
+  font-size: fonts.$font-md;
+  border-radius: 12px;
+  height: 30rem;
+  margin: 0;
+  padding-inline: spaces.$space-sm;
+  margin-bottom: spaces.$space-lg;
+  margin-top: spaces.$space-sm;
+}
