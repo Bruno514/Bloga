@@ -31,3 +31,36 @@ $red-600: hsl(0, 80%, 50%);
 $red-700: hsl(0, 80%, 41%);
 $red-800: hsl(0, 80%, 32%);
 $red-900: hsl(0, 80%, 23%);
+
+.colors { 
+  --neutral-100: #f6f8fa; 
+  --neutral-200: #c8ced3; 
+  --neutral-300: #aab2b8; 
+  --neutral-400: #8d959b; 
+  --neutral-500: #6f7880; 
+  --neutral-600: #596167; 
+  --neutral-700: #42484d; 
+  --neutral-800: #2a3036; 
+  --neutral-900: #1e2327; 
+
+  --primary-100: #d6ecfa; 
+  --primary-200: #c3e4f8; 
+  --primary-300: #9fd3f4; 
+  --primary-400: #7bc2f0; 
+  --primary-500: #56b1ec; 
+  --primary-600: #3399e6; 
+  --primary-700: #2377b8; 
+  --primary-800: #18568a; 
+  --primary-900: #0f355c; 
+
+  --red-100: #fad6d6;
+  --red-200: #f8c3c3;
+  --red-300: #f49f9f;
+  --red-400: #f07b7b;
+  --red-500: #ec5656;
+  --red-600: #e63333;
+  --red-700: #b82323;
+  --red-800: #8a1818;
+  --red-900: #5c0f0f;
+}
+
