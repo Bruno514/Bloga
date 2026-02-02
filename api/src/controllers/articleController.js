@@ -8,7 +8,7 @@ export const postArticle = async (req, res) => {
   const data = matchedData(req);
 
   try {
-    await prisma.post.create({
+    const post = await prisma.post.create({
       data: {
         title: data.title,
         content: data.content,
@@ -16,6 +16,8 @@ export const postArticle = async (req, res) => {
         author: { connect: { id: req.user.id } },
       },
     });
+
+    return res.status(201).json({ message: "Post created successfully", post });
   } catch (err) {
     if (err instanceof PrismaClientValidationError) {
       throw new CustomValidationError("Could not create article");
@@ -23,8 +25,6 @@ export const postArticle = async (req, res) => {
 
     throw err;
   }
-
-  return res.status(201).json({ message: "Post created successfully" });
 };
 
 export const getArticles = async (req, res) => {
