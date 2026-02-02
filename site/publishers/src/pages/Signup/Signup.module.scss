@@ -25,7 +25,7 @@
   button {
     border-radius: 12px;
     border-style: solid;
-    border-color: colors.$neutral-50;
+    border-color: colors.$neutral-100;
     width: 100%;
     padding: spaces.$space-xs;
     margin: 0;
@@ -35,17 +35,17 @@
 .submitButton {
   font-size: fonts.$font-md;
   font-weight: 800;
-  color: colors.$neutral-50;
+  color: colors.$neutral-100;
   background-color: colors.$neutral-800;
   cursor: pointer;
 
   &:hover {
-    background-color: colors.$neutral-950;
+    background-color: colors.$neutral-900;
   }
 }
 
 .logIn {
-  color: colors.$neutral-950;
+  color: colors.$neutral-900;
 }
 
 .link {
@@ -65,7 +65,7 @@
   border-radius: 12px;
   padding: spaces.$space-xs;
   color: colors.$neutral-700;
-  background-color: colors.$neutral-50;
+  background-color: colors.$neutral-100;
   font-weight: 900;
   font-size: fonts.$font-xs;
 }
