@@ -6,14 +6,14 @@ export function HomePage() {
   let navigate = useNavigate();
 
   function handleCreateArticle() {
-    navigate("/new");
+    navigate("/articles/new");
   }
 
   return (
     <>
       <h1> Hello {loaderData.user.name}! 👋</h1>
 
-      <Button variant="primary" onClick={handleCreateArticle}>
+      <Button kind="action" style="primary" onClick={handleCreateArticle}>
         New article!
       </Button>
     </>

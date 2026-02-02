@@ -49,7 +49,7 @@ export function LoginPage() {
 
         {error ? <p className={styles.error}>{error}</p> : null}
 
-        <Button variant="primary" type="submit" className={styles.submitButton}>
+        <Button kind="action" style="primary" type="submit">
           Login
         </Button>
         <p className={styles.signUp}>
