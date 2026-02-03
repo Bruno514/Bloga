@@ -10,14 +10,17 @@ export const getArticleByIdValidator = [
 ];
 
 export const postArticleValidator = [
-  body("title").notEmpty()
+  body("title").notEmpty().withMessage("Title is required")
+
     .trim()
-    .isString()
-    .isLength({ min: 1, max: 240 }),
-  body("content").notEmpty()
+    .isString().withMessage("Title must contain letters")
+    .isLength({ min: 1, max: 240 }).withMessage("Title must be between 1 and 240 characters."),
+
+  body("content").notEmpty().withMessage("Post text is required")
     .trim()
-    .isString()
-    .isLength({ min: 1, max: 2048 }),
+    .isString().withMessage("Post text must contain letters")
+
+    .isLength({ min: 1, max: 2048 }).withMessage("Post text must be between 1 and 2048 characters."),
   body("published").trim().notEmpty().toBoolean()
 ];
 

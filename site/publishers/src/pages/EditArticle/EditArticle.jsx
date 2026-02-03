@@ -5,12 +5,14 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import { Input } from "@/components/Input/Input.jsx";
 import { Editor } from "@/components/Editor/Editor.jsx";
+import ServerValidationError from "@/errors/ServerValidationError.js";
+import ServerError from "@/errors/ServerError.js";
 
 export function EditArticlePage() {
   const navigate = useNavigate();
   const [articleTitle, setArticleTitle] = useState("");
   const [editorState, setEditorState] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState({ status: null, errors: [] });
 
   const handlePostArticle = async () => {
     try {
@@ -18,8 +20,11 @@ export function EditArticlePage() {
 
       navigate(`/posts/${result.post.id}/edit`, { replace: true });
     } catch (err) {
-      console.log(err);
-      setError(err.message);
+      if (err instanceof ServerValidationError) {
+        setError({ status: err.status, errors: err.fields });
+      } else if (err instanceof ServerError) {
+        setError({ status: err.status, errors: [err.message] });
+      }
     }
   };
 
@@ -35,6 +40,12 @@ export function EditArticlePage() {
           required={true}
         />
         <Editor editorState={editorState} setEditorState={setEditorState} />
+
+        <ul className={styles.formErrors}>
+          {error.errors.map((e, i) => (
+            <li key={i}>{e.msg}</li>
+          ))}
+        </ul>
 
         <Button kind="action" style="primary" onClick={handlePostArticle}>
           Save

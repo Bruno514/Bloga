@@ -1,4 +1,4 @@
-import ApiError from "@/errors/ApiError.js";
+import ServerError from "@/errors/ServerError.js";
 
 export const createUser = async (
   username,
@@ -23,7 +23,7 @@ export const createUser = async (
 
     switch (response.status) {
       default:
-        throw new ApiError(
+        throw new ServerError(
           result?.error || response.statusText,
           response.status,
         );
