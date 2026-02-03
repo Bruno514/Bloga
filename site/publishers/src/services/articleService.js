@@ -1,6 +1,40 @@
 import { ServerGenericError } from "@/errors/ServerGenericError.js";
 import { ServerValidationError } from "@/errors/ServerValidationError.js";
 
+export const getArticles = async (title, author) => {
+  const params = new URLSearchParams();
+  params.append("title", title || "");
+  params.append("author", author || "");
+  const url = `${import.meta.env.VITE_API_URL}/article?${params}`;
+  console.log(url);
+
+  const token = localStorage.getItem("token");
+
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const result = await response.json();
+
+  if (response.ok) return result;
+
+  switch (response.status) {
+    case 400:
+      if (result?.errors) {
+        throw new ServerValidationError(result.statusText, result.errors);
+      } else {
+        throw new ServerGenericError(result?.error, response.status);
+      }
+
+    default:
+      throw new ServerGenericError(result?.error, response.status);
+  }
+};
+
 export const postArticle = async (title, content, published = false) => {
   const url = `${import.meta.env.VITE_API_URL}/article`;
 

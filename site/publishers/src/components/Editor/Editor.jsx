@@ -32,7 +32,6 @@ export function Editor({ editorState, setEditorState }) {
     console.error(error);
   }
 
-  console.log(editorState);
   function onChange(editorState) {
     const editorStateJSON = editorState.toJSON();
     setEditorState(JSON.stringify(editorStateJSON));
