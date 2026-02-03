@@ -1,4 +1,4 @@
-import { ServerGenericError } from "@/errors/ServerError.js";
+import { ServerGenericError } from "@/errors/ServerGenericError.js";
 
 export const createUser = async (
   username,

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Input } from "@/components/Input/Input.jsx";
 import { Editor } from "@/components/Editor/Editor.jsx";
 import { ServerValidationError } from "@/errors/ServerValidationError.js";
-import { ServerGenericError } from "@/errors/ServerError.js";
+import { ServerGenericError } from "@/errors/ServerGenericError.js";
 
 export function EditArticlePage() {
   const navigate = useNavigate();

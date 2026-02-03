@@ -1,4 +1,4 @@
-import { ServerGenericError } from "@/errors/ServerError.js";
+import { ServerGenericError } from "@/errors/ServerGenericError.js";
 import { ServerValidationError } from "@/errors/ServerValidationError.js";
 
 export const postArticle = async (title, content, published = false) => {
