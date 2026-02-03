@@ -1,4 +1,4 @@
-import ServerError from "@/errors/ServerError.js";
+import { ServerGenericError } from "@/errors/ServerError.js";
 
 export const createUser = async (
   username,
@@ -23,7 +23,7 @@ export const createUser = async (
 
     switch (response.status) {
       default:
-        throw new ServerError(
+        throw new ServerGenericError(
           result?.error || response.statusText,
           response.status,
         );

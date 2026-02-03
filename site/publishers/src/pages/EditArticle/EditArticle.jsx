@@ -5,8 +5,8 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import { Input } from "@/components/Input/Input.jsx";
 import { Editor } from "@/components/Editor/Editor.jsx";
-import ServerValidationError from "@/errors/ServerValidationError.js";
-import ServerError from "@/errors/ServerError.js";
+import { ServerValidationError } from "@/errors/ServerValidationError.js";
+import { ServerGenericError } from "@/errors/ServerError.js";
 
 export function EditArticlePage() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export function EditArticlePage() {
     } catch (err) {
       if (err instanceof ServerValidationError) {
         setError({ status: err.status, errors: err.fields });
-      } else if (err instanceof ServerError) {
+      } else if (err instanceof ServerGenericError) {
         setError({ status: err.status, errors: [err.message] });
       }
     }

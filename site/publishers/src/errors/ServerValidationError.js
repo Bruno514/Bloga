@@ -1,8 +1,8 @@
-export default class ServerValidationError extends Error {
+export class ServerValidationError extends Error {
   constructor(message, fields) {
     super(message);
 
-    this.name = "ValidationError";
+    this.name = "ServerValidationError";
     this.fields = fields;
   }
 }

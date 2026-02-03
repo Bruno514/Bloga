@@ -11,7 +11,6 @@ export const getArticleByIdValidator = [
 
 export const postArticleValidator = [
   body("title").notEmpty().withMessage("Title is required")
-
     .trim()
     .isString().withMessage("Title must contain letters")
     .isLength({ min: 1, max: 240 }).withMessage("Title must be between 1 and 240 characters."),
