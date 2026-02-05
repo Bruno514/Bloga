@@ -36,26 +36,32 @@ export function HomePage() {
 
   return (
     <>
-      <h1> Hello {loaderData.user.name}! 👋</h1>
+      <div className={styles.container}>
+        <h1> Hello {loaderData.user.name}! 👋</h1>
 
-      <Button
-        kind="action"
-        style="primary"
-        onClick={() => navigate("/articles/new")}
-      >
-        New article!
-      </Button>
+        <Button
+          kind="action"
+          style="primary"
+          onClick={() => navigate("/articles/new")}
+        >
+          New article!
+        </Button>
 
-      <section className={styles.articles}>
-        {articles.map((article) => (
-          <article key={article.id} className={styles.article}>
-            <h1>{article.title}</h1>
-            <p>{article.content}</p>
-            <p>{article.updateAt}</p>
-            <p>{article.published ? "Published" : "Not Published"}</p>
-          </article>
-        ))}
-      </section>
+        <section className={styles.articles}>
+          {articles.map((article) => (
+            <a>
+              <article key={article.id} className={styles.article}>
+                <h1 className="article-title">{article.title}</h1>
+                <p>{article.content}</p>
+                <p className="date">{new Date(article.updatedAt).toDateString()}</p>
+                <p className="not-published">
+                  {article.published ? "Published" : "Not Published"}
+                </p>
+              </article>
+            </a>
+          ))}
+        </section>
+      </div>
     </>
   );
 }

@@ -1,0 +1,71 @@
+@use "@styles/fonts";
+@use "@styles/spaces";
+@use "@styles/colors";
+
+.container {
+  max-width: 80rem;
+  margin-inline: auto;
+
+  @media screen and (max-width: 40rem) {
+    padding-inline: 1rem;
+  }
+}
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  margin-block: spaces.$space-md;
+
+  a {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.article {
+  max-width: 50rem;
+  padding: spaces.$space-sm;
+  border-bottom: solid 1px colors.$neutral-200;
+
+  p {
+    line-clamp: 2;
+    color: colors.$neutral-700;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+
+  [class~="article-title"] {
+    color: colors.$neutral-900;
+    font-size: fonts.$font-lg;
+  }
+
+  &:hover {
+    [class~="article-title"] {
+      text-decoration: underline;
+    }
+  }
+
+  p[class~="published"] {
+    width: fit-content;
+    background-color: colors.$green-1;
+    color: colors.$green-9;
+    border-radius: 0.25rem;
+    padding-inline: spaces.$space-xxs;
+  }
+
+  p[class~="not-published"] {
+    width: fit-content;
+    background-color: colors.$primary-100;
+    color: colors.$primary-900;
+    border-radius: 0.25rem;
+    padding-inline: spaces.$space-xxs;
+  }
+
+  p[class~="date"] {
+    color: colors.$neutral-700;
+  }
+}
