@@ -34,6 +34,7 @@ export const getArticles = async (req, res) => {
     const articles = await prisma.post.findMany({
       where: { title: { contains: data.title }, author: { id: data.author } },
       include: { comments: true },
+      orderBy: { updatedAt: "desc" }
     });
 
     return res.status(200).json({ articles });
