@@ -20,12 +20,10 @@ function OnChangePlugin({ onChange }) {
 }
 
 export function Editor({ editorState, setEditorState }) {
-  const theme = {};
-
   const initialConfig = {
     namespace: "MyEditor",
     onError,
-    theme,
+    editorState,
   };
 
   function onError(error) {

@@ -49,11 +49,13 @@ export function HomePage() {
 
         <section className={styles.articles}>
           {articles.map((article) => (
-            <a>
-              <article key={article.id} className={styles.article}>
+            <a key={article.id} href={`/articles/${article.id}/edit`}>
+              <article className={styles.article}>
                 <h1 className="article-title">{article.title}</h1>
                 <p>{article.content}</p>
-                <p className="date">{new Date(article.updatedAt).toDateString()}</p>
+                <p className="date">
+                  {new Date(article.updatedAt).toDateString()}
+                </p>
                 <p className="not-published">
                   {article.published ? "Published" : "Not Published"}
                 </p>

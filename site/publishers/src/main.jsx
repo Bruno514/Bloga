@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     loader: profileLoader,
   },
   {
-    path: "/articles/:pid/edit",
+    path: "/articles/:postId/edit",
     element: <EditArticlePage />,
     middleware: [authMiddleware],
     errorElement: <ErrorPage />,

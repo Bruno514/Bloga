@@ -11,6 +11,7 @@ export function Input({
   maxLength,
   minLength,
   required,
+  ...props
 }) {
   return (
     <>
@@ -24,6 +25,7 @@ export function Input({
         maxLength={maxLength}
         minLength={minLength}
         required={required}
+        {...props}
       >
         {children}
       </input>
